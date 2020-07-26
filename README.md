@@ -3,7 +3,7 @@
 A *nix script written in C that pops a random quote in a random time period - usually 10 minutes to a quarter of an hour.\
 It utilises the **`notify-send`** bundled with the system DE.
 
-### Path of Development
+## Path of Development
 
 - [x] Read qoutes from a .txt file.
 - [x] Display the qoute as a system notification.
@@ -11,6 +11,6 @@ It utilises the **`notify-send`** bundled with the system DE.
 - [ ] Add more qoutes.
 - [ ] Randomise the qoute picked.
 
-
 ## Future plans
-- [ ] Can use this as form of my To-Do List.
+
+- [ ] Can use this to form the skeleton of my To-Do List.

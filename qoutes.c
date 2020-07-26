@@ -23,7 +23,7 @@ int main(void)
 	while ((read = getline(&line, &len, stream)) != -1) {
         int sleep_time = controlwhole();
         sleep(sleep_time);
-        char notification[BUFFER] = "notify-send --icon=google-chrome \"Test\" ";
+        char notification[BUFFER] = "notify-send --icon=bash \"REMEMBER\" ";
 		produce_notification(notification, line);
 	}
  
