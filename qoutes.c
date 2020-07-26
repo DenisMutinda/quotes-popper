@@ -40,7 +40,7 @@ char produce_notification(char notification[], char qoute[]){
 }
 
 int controlwhole(){
-    int lower = 1800, upper = 3600; // Sleep time that ranges between half to one hour
+    int lower = 600, upper = 900; // Sleep time that ranges between 10 minutes to one quarter of an hour
     srand(time(0));
     int pause_time = (rand() % (upper - lower + 1)) + lower;
     return pause_time;
