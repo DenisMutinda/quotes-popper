@@ -21,8 +21,6 @@ int main(void)
     }
  
 	while ((read = getline(&line, &len, stream)) != -1) {
-		/*
-        printf("Retrieved line of length %u :\n", read); */
         int sleep_time = controlwhole();
         sleep(sleep_time);
         char notification[BUFFER] = "notify-send --icon=google-chrome \"Test\" ";
@@ -38,7 +36,6 @@ char produce_notification(char notification[], char qoute[]){
     
     strcat(notification, qoute);
     system(notification);
-    printf("%s\n", notification);   
 
 }
 
@@ -46,6 +43,5 @@ int controlwhole(){
     int lower = 1800, upper = 3600; // Sleep time that ranges between half to one hour
     srand(time(0));
     int pause_time = (rand() % (upper - lower + 1)) + lower;
-    printf("%d\n", pause_time);
     return pause_time;
 }
