@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
 #define BUFFER 1024
 
-void produce_notification(char notification[], char qoute[]);
+char produce_notification(char notification[], char qoute[]);
+int controlwhole();
  
 int main(void)
 {
@@ -13,11 +16,15 @@ int main(void)
 	size_t read;
  
 	stream = fopen("qoutes.txt", "r");
-	if (stream == NULL)
+	if (stream == NULL){
 		exit(EXIT_FAILURE);
+    }
  
 	while ((read = getline(&line, &len, stream)) != -1) {
-		//printf("Retrieved line of length %u :\n", read);
+		/*
+        printf("Retrieved line of length %u :\n", read); */
+        int sleep_time = controlwhole();
+        sleep(sleep_time);
         char notification[BUFFER] = "notify-send --icon=google-chrome \"Test\" ";
 		produce_notification(notification, line);
 	}
@@ -27,10 +34,18 @@ int main(void)
 	exit(EXIT_SUCCESS);
 }
 
-void produce_notification(char notification[], char qoute[]){
+char produce_notification(char notification[], char qoute[]){
     
     strcat(notification, qoute);
     system(notification);
     printf("%s\n", notification);   
 
+}
+
+int controlwhole(){
+    int lower = 1800, upper = 3600; // Sleep time that ranges between half to one hour
+    srand(time(0));
+    int pause_time = (rand() % (upper - lower + 1)) + lower;
+    printf("%d\n", pause_time);
+    return pause_time;
 }
